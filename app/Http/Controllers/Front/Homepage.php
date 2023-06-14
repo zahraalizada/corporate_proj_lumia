@@ -7,10 +7,12 @@ use App\Models\Communication;
 use App\Models\IconCard;
 use App\Models\ImageCard;
 use App\Models\SocialLink;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 use App\Models\StaticElements;
 use App\Models\About;
 use App\Models\Portfolio;
+use App\Models\Contact;
 use Termwind\Components\Dd;
 
 class Homepage extends Controller
@@ -50,8 +52,23 @@ class Homepage extends Controller
 
         return view('front.homepage', compact('items', 'arr', 'about_item', 'portfolio_items', 'communication_item', 'icon_card_home_items','icon_card_services_items','image_card_testimonials_items','image_card_team_items','social_link_website_items'));
 
-
     }
+
+    public function contact(Request $request){
+
+
+
+        $contact = new Contact;
+
+        $contact->fullname = $request->fullname;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
+
+        return redirect()->route('contact');
+    }
+
 
 
 }

@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(IconCardSeeder::class);
 //        $this->call(SocialLinkSeeder::class);
 //        ---------------
+        $this->call(AdminSeeder::class);
+
     }
 }

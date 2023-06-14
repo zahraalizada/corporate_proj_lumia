@@ -13,4 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// =============== Back Routes ===============
+Route::prefix('admin')->name('admin')->middleware('isLogin')->group(function (){
+    Route::get('login','App\Http\Controllers\Back\AuthController@login')->name('Login');
+    Route::post('login','App\Http\Controllers\Back\AuthController@loginPost')->name('LoginPost');
+});
+
+
+Route::prefix('admin')->name('admin')->middleware('isAdmin')->group(function (){
+    Route::get('dashboard','App\Http\Controllers\Back\Dashboard@index')->name('Dashboard');
+    Route::get('logout','App\Http\Controllers\Back\AuthController@logout')->name('Logout');
+});
+
+
+
+
+
+// =============== Front Routes ===============
 Route::get('/', 'App\Http\Controllers\Front\Homepage@index')->name('homepage');
+Route::post('/','App\Http\Controllers\Front\Homepage@contact')->name('contact');
+//Route::get('/portfolio_desc/{id}', 'App\Http\Controllers\Front\PortfolioDesc@index')->name('portfolio_desc');
+
+

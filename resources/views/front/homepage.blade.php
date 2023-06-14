@@ -244,11 +244,12 @@
 
                 <div class="row mt-5 justify-content-center">
                     <div class="col-lg-10">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{route('contact')}}" method="post" role="form" class="php-email-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                           placeholder="Your Name" required>
+                                    <input type="text" name="fullname" class="form-control" id="fullname"
+                                           placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <input type="email" class="form-control" name="email" id="email"
@@ -265,7 +266,7 @@
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>
-                                <div class="error-message"></div>
+                                <div class="error-message d-none"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
                             <div class="text-center">
