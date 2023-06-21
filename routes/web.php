@@ -22,6 +22,7 @@ Route::prefix('admin')->name('admin')->middleware('isLogin')->group(function (){
 
 Route::prefix('admin')->name('admin')->middleware('isAdmin')->group(function (){
     Route::get('dashboard','App\Http\Controllers\Back\Dashboard@index')->name('Dashboard');
+    Route::resource('abouts','App\Http\Controllers\Back\AboutController');
     Route::get('logout','App\Http\Controllers\Back\AuthController@logout')->name('Logout');
 });
 

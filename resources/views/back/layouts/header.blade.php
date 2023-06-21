@@ -32,7 +32,7 @@
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('adminabouts.index')}}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Abouts</span></a>
         </li>
