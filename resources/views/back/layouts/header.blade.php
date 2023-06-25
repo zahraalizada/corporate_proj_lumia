@@ -7,11 +7,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title','Admin') | Admin Lumia</title>
+    @notifyCss
     <link href="{{asset('back/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="{{asset('back/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('back/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    @yield('css')
+
+    <link href="{{asset('back/css/custom.css')}}" rel="stylesheet">
+
+
+
 
 </head>
 
@@ -25,48 +33,48 @@
             <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
         </a>
         <hr class="sidebar-divider my-0">
-        <li class="nav-item active">
+        <li class="nav-item @if(Request::segment(2) == "dashboard") active @endif ">
             <a class="nav-link" href="{{route('adminDashboard')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
         <hr class="sidebar-divider">
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('adminabouts.index')}}">
+        <li class="nav-item @if(Request::segment(2) == "abouts") active @endif ">
+            <a class="nav-link " href="{{route('adminabouts.index')}}">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Abouts</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "communications") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Communications</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "contacts") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Contacts</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "iconcards") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Icon Cards</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "imagecards") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Image Cards</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "portfolios") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Portfolios</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "sociallinks") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Social links</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item @if(Request::segment(2) == "staticelements") active @endif ">
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Static Elements</span></a>
@@ -110,6 +118,5 @@
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <a href="{{route('homepage')}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-globe fa-sm text-white-50"></i> Go to Website </a>
                 </div>

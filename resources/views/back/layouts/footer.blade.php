@@ -41,6 +41,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('back/vendor/jquery/jquery.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="{{asset('back/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 <!-- Core plugin JavaScript-->
@@ -56,6 +57,19 @@
 <script src="{{asset('back/js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('back/js/demo/chart-pie-demo.js')}}"></script>
 
+<!-- Page level plugins -->
+<script src="{{asset('back/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('back/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{asset('back/js/demo/datatables-demo.js')}}"></script>
+
+<x-notify::notify />
+@notifyJs
+
+@yield('js')
+
 </body>
+
 
 </html>

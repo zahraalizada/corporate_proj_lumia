@@ -1,0 +1,11 @@
+.admin-img-box{
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+.admin-img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}

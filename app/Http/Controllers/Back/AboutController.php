@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {
@@ -12,7 +14,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return "index";
+        // About elements
+        $about_item = About::first();
+        return view('back.abouts.index', compact('about_item'));
     }
 
     /**
@@ -20,7 +24,8 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return "create";
+
+        return view('back.abouts.create');
     }
 
     /**
@@ -28,7 +33,28 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Image validation
+        $request->validate([
+            'title' => 'min:3',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+
+        $abouts = new About;
+        $abouts->title = $request->title;
+        $abouts->description = $request->description;
+
+        if ($request->hasfile('image')) {
+
+            $imageName = Str::slug($request->title) . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads'), $imageName);
+            $abouts->image = 'uploads/' . $imageName;
+        }
+//        dd($abouts->image);
+        $abouts->save();
+        notify()->success('Successful Addition!');
+        return redirect()->route('adminabouts.index');
+
     }
 
     /**
