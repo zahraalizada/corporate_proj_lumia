@@ -24,7 +24,6 @@ class AboutController extends Controller
      */
     public function create()
     {
-
         return view('back.abouts.create');
     }
 
@@ -70,7 +69,9 @@ class AboutController extends Controller
      */
     public function edit(string $id)
     {
-        return $id;
+        $about_item = About::first();
+//        dd($about_item);
+        return view('back.abouts.update', compact('about_item'));
     }
 
     /**
@@ -78,7 +79,7 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return "update calishti";
     }
 
     /**

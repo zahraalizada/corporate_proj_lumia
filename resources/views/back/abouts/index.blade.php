@@ -31,7 +31,7 @@
                         <td>
                             <div>
 
-                                <a title="Edit" href="{{route('admin.')}}" class="btn btn-info btn-circle btn-sm mr-2">
+                                <a title="Edit" href="{{route('adminabouts.edit',$about_item->id)}}" class="btn btn-info btn-circle btn-sm mr-2">
                                     <i class="fas fa-pen"></i>
                                 </a>
                                 <a title="Delete" href="#" class="btn btn-danger btn-circle btn-sm">
